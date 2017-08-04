@@ -8,7 +8,7 @@ class Book extends Component {
     updateBookShelf: PropTypes.func.isRequired
   }
 
-  render () {
+  render() {
     const {book} = this.props
     const {updateBookShelf} = this.props
 
@@ -19,7 +19,7 @@ class Book extends Component {
                style={{
                  height: 192,
                  width: 128,
-                 backgroundImage: `url(${book.imageLinks !== undefined ? book.imageLinks.thumbnail: ''})`
+                 backgroundImage: `url(${book.imageLinks !== undefined ? book.imageLinks.thumbnail : ''})`
                }}>
           </div>
           <div className="book-shelf-changer">

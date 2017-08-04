@@ -10,8 +10,8 @@ class ListBooks extends Component {
   }
 
   render() {
-    const { books } = this.props
-    const { updateBookShelf } = this.props
+    const {books} = this.props
+    const {updateBookShelf} = this.props
 
     return (
       <div className="list-books">
@@ -24,19 +24,19 @@ class ListBooks extends Component {
             <BookShelf
               books={books}
               shelfType={'read'}
-              updateBookShelf = {updateBookShelf}
+              updateBookShelf={updateBookShelf}
             />
 
             <BookShelf
               books={books}
               shelfType={'currentlyReading'}
-              updateBookShelf = {updateBookShelf}
+              updateBookShelf={updateBookShelf}
             />
 
             <BookShelf
               books={books}
               shelfType={'wantToRead'}
-              updateBookShelf = {updateBookShelf}
+              updateBookShelf={updateBookShelf}
             />
 
           </div>

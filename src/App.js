@@ -1,8 +1,8 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
-import SearchBooks from './SearchBooks'
-import ListBooks from './ListBooks'
+import SearchBooks from './components/SearchBooks'
+import ListBooks from './components/ListBooks'
 import './App.css'
 
 class BooksApp extends React.Component {
@@ -19,10 +19,10 @@ class BooksApp extends React.Component {
 
   updateBookShelf = (book, shelf) => {
     if (this.state.books) {
-      BooksAPI.update(book,shelf).then(() => {
+      BooksAPI.update(book, shelf).then(() => {
         book.shelf = shelf;
         this.setState(state => ({
-          books: state.books.filter(b => b.id !== book.id).concat([ book ])
+          books: state.books.filter(b => b.id !== book.id).concat([book])
         }))
       })
     }

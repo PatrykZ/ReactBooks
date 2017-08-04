@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Book from './Book'
 
@@ -18,7 +17,7 @@ class BookShelf extends Component {
     const {shelfType} = this.props
 
     if (shelfType == 'read') {
-      this.setState({ shelfTitle: 'Read' })
+      this.setState({shelfTitle: 'Read'})
     } else if (shelfType === 'wantToRead') {
       this.setState({shelfTitle: 'Want to Read'})
     } else if (shelfType === 'currentlyReading') {
@@ -27,13 +26,13 @@ class BookShelf extends Component {
   }
 
   render() {
-    const { books } = this.props
-    const { shelfType } = this.props
-    const { updateBookShelf } = this.props
+    const {books} = this.props
+    const {shelfType} = this.props
+    const {updateBookShelf} = this.props
 
 
     let showingBooks
-    showingBooks = books.filter((book) => book.shelf===shelfType)
+    showingBooks = books.filter((book) => book.shelf === shelfType)
 
     return (
       <div className="bookshelf">
