@@ -10,12 +10,12 @@ class SearchBooks extends Component {
   static propTypes = {
     books: PropTypes.array.isRequired,
     updateBookShelf: PropTypes.func.isRequired,
-  }
+  };
 
   state = {
     query: '',
-    books: []
-  }
+    books: [],
+  };
 
   updateQuery = (query) => {
     if (!query) {
@@ -26,10 +26,11 @@ class SearchBooks extends Component {
         if (books.error) {
           books = []
         }
+        books.map(book => (this.props.books.filter((houseBook) => houseBook.id === book.id).map(houseBook => book.shelf = houseBook.shelf)))
         this.setState({books})
       })
     }
-  }
+  };
 
   render() {
     const {updateBookShelf} = this.props
