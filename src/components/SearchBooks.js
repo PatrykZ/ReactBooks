@@ -18,6 +18,8 @@ class SearchBooks extends Component {
   };
 
   updateQuery = (query) => {
+    const homeBooks = this.props.books
+
     if (!query) {
       this.setState({query: '', books: []})
     } else {
@@ -26,8 +28,19 @@ class SearchBooks extends Component {
         if (books.error) {
           books = []
         }
-        books.map(book => (this.props.books.filter((houseBook) => houseBook.id === book.id).map(houseBook => book.shelf = houseBook.shelf)))
-        this.setState({books})
+
+        let searchBooks = books.map(book => {
+            for (let hb of homeBooks) {
+              if (book.id === hb.id) {
+                book.shelf = hb.shelf;
+                return book
+              }
+            }
+            return book
+          }
+        );
+
+        this.setState({books: searchBooks})
       })
     }
   };
